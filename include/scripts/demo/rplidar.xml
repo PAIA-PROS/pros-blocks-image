@@ -4,10 +4,11 @@
         發布TF from base_footprint to laser 
         使用ros2_laser_scan_matcher 發布TF from odom to base_footprint
     -->
+    <arg name="serial_baudrate" default="1000000"/>
     <node name="rplidar" pkg="rplidar_ros" exec="rplidar_node" output="screen">
         <!-- TODO -->
         <param name="serial_port" value="/dev/usb_lidar"/>
-        <param name="serial_baudrate" value="256000"/>
+        <param name="serial_baudrate" value="$(var serial_baudrate)"/>
         <param name="frame_id" value="laser"/>
         <param name="inverted" value="false"/>
         <param name="angle_compensate" value="true"/>
